@@ -1,6 +1,7 @@
 package com.kairosds.cursospb2.webrest.libro.rest;
 
 import com.kairosds.cursospb2.webrest.libro.domain.Libro;
+import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -15,7 +16,7 @@ public class LibrosController {
             Libro.builder().autor("Agatha Christie").titulo("Los diez negritos").numPaginas(273).build()
     );
 
-    @GetMapping(value = "libros")
+    @GetMapping(value = "libros", produces = MediaType.APPLICATION_XML_VALUE)
     public List<Libro> findAllLibros(){
         return libros;
     }
