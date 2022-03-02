@@ -4,6 +4,7 @@ import com.kairosds.cursospb2.webrest.libro.domain.Libro;
 import com.kairosds.cursospb2.webrest.libro.rest.exceptions.LibroCreateException;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -24,7 +25,7 @@ public class LibrosController {
     }
 
     @PostMapping
-    public ResponseEntity<Libro> createLibro(@RequestBody Libro libro) {
+    public ResponseEntity<Libro> createLibro(@RequestBody @Validated Libro libro) {
 
         throw new LibroCreateException("El titulo supera la longitud Maxima");
 
